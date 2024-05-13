@@ -1,0 +1,18 @@
+[project]
+name = "racutils"
+version = "0.0.1"
+authors = [
+  { name="Richard Conway", email="richard@rconway.co.uk" },
+]
+description = "Python utilities"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/rconway/racpy"
+Issues = "https://github.com/rconway/racpy/issues"
