@@ -1,7 +1,5 @@
 # racpy
 
-bogus update - again - more
-
 Python utils
 
 ## Release to pypi
