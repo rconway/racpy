@@ -1,0 +1,27 @@
+name: Delete Source Branch on PR Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  delete-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Extract source branch name
+        id: extract-branch
+        run: |
+          # Extract branch name from the pull request
+          SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
+          echo "Source branch to delete is: ${SOURCE_BRANCH}"
+          echo "::set-output name=source_branch::$SOURCE_BRANCH"
+
+      # - name: Delete source branch
+      #   run: |
+      #     # Delete the branch
+      #     git push origin --delete "${{ steps.extract-branch.outputs.source_branch }}"
