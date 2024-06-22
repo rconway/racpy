@@ -19,9 +19,11 @@ jobs:
           # Extract branch name from the pull request
           SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
           echo "Source branch to delete is: ${SOURCE_BRANCH}"
-          echo "::set-output name=source_branch::$SOURCE_BRANCH"
+          # echo "::set-output name=source_branch::$SOURCE_BRANCH"
+          echo "{source_branch}={$SOURCE_BRANCH}" >> $GITHUB_OUTPUT
 
-      # - name: Delete source branch
-      #   run: |
-      #     # Delete the branch
-      #     git push origin --delete "${{ steps.extract-branch.outputs.source_branch }}"
+      - name: Delete source branch
+        run: |
+          # Delete the branch
+          # git push origin --delete "${{ steps.extract-branch.outputs.source_branch }}"
+          echo "Would delete branch: ${{ steps.extract-branch.outputs.source_branch }}"
