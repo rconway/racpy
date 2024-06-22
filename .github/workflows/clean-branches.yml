@@ -26,3 +26,5 @@ jobs:
           # Delete the branch
           echo "Deleting branch: ${{ steps.extract-branch.outputs.source_branch }}"
           git push origin --delete "${{ steps.extract-branch.outputs.source_branch }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

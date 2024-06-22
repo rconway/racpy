@@ -1,5 +1,7 @@
 # racpy
 
+still broken
+
 Python utils
 
 ## Release to pypi
